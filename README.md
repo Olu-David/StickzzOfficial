@@ -1,4 +1,4 @@
-Here is the complete, fully assembled, and perfectly formatted `README.md` for the **Dominion Intelligent Builder Academic School Portal (DIBA Portal)** with correct Markdown formatting, numbered lists, and `bash`/`json` blocks throughout:
+
 
 ```markdown
 # 🏫 Dominion Intelligent Builder Academic School Portal (DIBA Portal)
