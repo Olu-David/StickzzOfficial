@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # 🏫 Dominion Intelligent Builder Academic School Portal (DIBA Portal)
 
 A robust, enterprise-grade, multi-tier School Management System (SMS) built for **Dominion Intelligent Builder Academic School**. The platform features a secure **ASP.NET Core Web API** backend and a modern **React & TypeScript** frontend, designed to manage the complete academic lifecycle—from admissions and fee processing to continuous assessments and automated result generation.
