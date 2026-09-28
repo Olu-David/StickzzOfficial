@@ -1,3 +1,6 @@
+Here is the complete, fully assembled, and perfectly formatted `README.md` for the **Dominion Intelligent Builder Academic School Portal (DIBA Portal)** with correct Markdown formatting, numbered lists, and `bash`/`json` blocks throughout:
+
+```markdown
 # 🏫 Dominion Intelligent Builder Academic School Portal (DIBA Portal)
 
 A robust, enterprise-grade, multi-tier School Management System (SMS) built for **Dominion Intelligent Builder Academic School**. The platform features a secure **ASP.NET Core Web API** backend and a modern **React & TypeScript** frontend, designed to manage the complete academic lifecycle—from admissions and fee processing to continuous assessments and automated result generation.
@@ -69,110 +72,142 @@ To reflect the school's precise management structure, the portal uses a granular
 
 ## 🚀 Getting Started
 
-### Backend Setup (.NET API)
+### 1. Backend Setup (.NET API)
+
 1. Navigate to the backend directory:
    ```bash
    cd backend/OnlineVotingApplication
 
-   Configure your database connection string in appsettings.json:
+```
 
-JSON
+2. Configure your database connection string in `appsettings.json`:
+```json
 "ConnectionStrings": {
   "DefaultConnection": "Host=localhost;Database=DIBA_Portal_Db;Username=postgres;Password=yourpassword"
 }
-Run database migrations:
 
-Bash
+```
+
+
+3. Run database migrations:
+```bash
 dotnet ef database update
-Start the API server:
 
-Bash
+```
+
+
+4. Start the API server:
+```bash
 dotnet run
-Frontend Setup (React & Vite)
-Navigate to the frontend directory:
 
-Bash
+```
+
+
+
+### 2. Frontend Setup (React & Vite)
+
+1. Navigate to the frontend directory:
+```bash
 cd frontend
-Install dependencies:
 
-Bash
+```
+
+
+2. Install dependencies:
+```bash
 npm install
-Start the development server:
 
-Bash
+```
+
+
+3. Start the development server:
+```bash
 npm run dev
-📌 Development Roadmap
-[x] ASP.NET Core Identity & JWT Authentication Setup
 
-[x] Admin User Management & Penalty Lockout Module
+```
 
-[x] Audit Logging Middleware Architecture
 
-[ ] Academic Term & Session Management Module
 
-[ ] Student Enrollment & Class Arms Routing
+---
 
-[ ] Continuous Assessment & Grading Engine
+## 📌 Development Roadmap
 
-[ ] Fee Structure & Payment Gateway Integration
+* [x] ASP.NET Core Identity & JWT Authentication Setup
+* [x] Admin User Management & Penalty Lockout Module
+* [x] Audit Logging Middleware Architecture
+* [ ] Academic Term & Session Management Module
+* [ ] Student Enrollment & Class Arms Routing
+* [ ] Continuous Assessment & Grading Engine
+* [ ] Fee Structure & Payment Gateway Integration
+* [ ] React Dashboard, Student, and Parent Portal Views
 
-[ ] React Dashboard, Student, and Parent Portal Views
+---
 
-🔌 Core API Endpoints Reference
+## 🔌 Core API Endpoints Reference
+
 The backend exposes RESTful endpoints secured via JWT Bearer tokens:
 
-Authentication (/api/auth)
+* **Authentication (`/api/auth`)**
+* `POST /login` - Authenticates users and returns JWT access/refresh tokens.
+* `POST /register` - Registers new portal users (restricted by role).
 
-POST /login - Authenticates users and returns JWT access/refresh tokens.
 
-POST /register - Registers new portal users (restricted by role).
+* **User & Role Administration (`/api/admin/users`)**
+* `GET /all` - Retrieves paginated system users with stats and role filters.
+* `POST /penalty-lockout` - Applies a 100-year administrative penalty lockout with audit logging.
 
-User & Role Administration (/api/admin/users)
 
-GET /all - Retrieves paginated system users with stats and role filters.
+* **Academic Structure (`/api/academic`)**
+* `GET /sessions` - Lists academic sessions and active terms.
+* `POST /class-rooms` - Manages class arms and student allocations.
 
-POST /penalty-lockout - Applies a 100-year administrative penalty lockout with audit logging.
 
-Academic Structure (/api/academic)
+* **Grading & Results (`/api/results`)**
+* `POST /scores` - Inputs continuous assessment and exam marks by authorized teachers.
+* `GET /terminal-report/{studentId}` - Compiles and calculates term results, averages, and positions.
 
-GET /sessions - Lists academic sessions and active terms.
 
-POST /class-rooms - Manages class arms and student allocations.
+* **Finance (`/api/finance`)**
+* `POST /invoices` - Generates student fee liabilities.
+* `POST /webhook/paystack` - Processes automated payment gateway confirmations and receipts.
 
-Grading & Results (/api/results)
 
-POST /scores - Inputs continuous assessment and exam marks by authorized teachers.
 
-GET /terminal-report/{studentId} - Compiles and calculates term results, averages, and positions.
+---
 
-Finance (/api/finance)
+## 🛡️ Security & Architecture Best Practices
 
-POST /invoices - Generates student fee liabilities.
+* **Token-Based Security:** Stateless JWT authentication paired with secure HTTP-only cookies or encrypted local storage headers.
+* **Data Isolation:** Role-Based Access Control (RBAC) enforced via ASP.NET Core `[Authorize(Roles = "...")]` attributes on controllers and specific endpoint actions.
+* **Audit Compliance:** Every critical mutation (such as penalty lockouts, grade updates, and fee waivers) is captured automatically via middleware into the `AuditLog` table.
+* **Input Validation:** Comprehensive model state validation on both the API DTOs and React forms to prevent injection and invalid relational mappings.
 
-POST /webhook/paystack - Processes automated payment gateway confirmations and receipts.
+---
 
-🛡️ Security & Architecture Best Practices
-Token-Based Security: Stateless JWT authentication paired with secure HTTP-only cookies or encrypted local storage headers.
+## 🤝 Contributing & Development Workflow
 
-Data Isolation: Role-Based Access Control (RBAC) enforced via ASP.NET Core [Authorize(Roles = "...")] attributes on controllers and specific endpoint actions.
-
-Audit Compliance: Every critical mutation (such as penalty lockouts, grade updates, and fee waivers) is captured automatically via middleware into the AuditLog table.
-
-Input Validation: Comprehensive model state validation on both the API DTOs and React forms to prevent injection and invalid relational mappings.
-
-🤝 Contributing & Development Workflow
-Create a feature branch for your module:
-
-Bash
+1. Create a feature branch for your module:
+```bash
 git checkout -b feature/session-term-module
-Commit your changes with descriptive messages:
 
-Bash
+```
+
+
+2. Commit your changes with descriptive messages:
+```bash
 git commit -m "feat: added academic session and active term configuration"
-Push to the branch and open a Pull Request for code review against the main repository.
 
-📜 License
-This project is proprietary software developed exclusively for Dominion Intelligent Builder Academic School. All rights reserved.
-1. Navigate to the backend directory:
-   ```bash
-   cd backend/OnlineVotingApplication
+```
+
+
+3. Push to the branch and open a Pull Request for code review against the main repository.
+
+---
+
+## 📜 License
+
+This project is proprietary software developed exclusively for **Dominion Intelligent Builder Academic School**. All rights reserved.
+
+```
+
+```
